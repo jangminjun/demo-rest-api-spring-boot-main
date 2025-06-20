@@ -8,11 +8,9 @@
         <version>3.2.0</version>
         <relativePath/> </parent>
     <groupId>com.brodygaudel</groupId>
-    <artifactId>ROOT</artifactId>
-    <!--
+    <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    -->
-    <name>ROOT</name>
+    <name>demo</name>
     <description>demo</description>
     <properties>
         <java.version>17</java.version>
@@ -85,6 +83,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <filename>ROOT.war</filename> 
+                </configuration>
+
             </plugin>
         </plugins>
     </build>
@@ -122,7 +124,8 @@
                         <artifactId>eap-maven-plugin</artifactId>
                         <version>1.0.1.Final-redhat-00022</version>
                         <configuration>
-                            </configuration>
+                            <filename>ROOT.war</filename> 
+                        </configuration>
                         <executions>
                             <execution>
                                 <goals>
