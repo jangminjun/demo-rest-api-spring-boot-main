@@ -124,7 +124,7 @@
                     <plugin>
                         <groupId>org.jboss.eap.plugins</groupId>
                         <artifactId>eap-maven-plugin</artifactId>
-                        <version>1.0.0.Final-redhat-00014</version>
+                        <version>1.0.1.Final-redhat-00022</version>
                         <configuration>
                             <channels>
                                 <channel>
@@ -146,7 +146,7 @@
                                 </feature-pack>
                             </feature-packs>
                             <layers>
-                                <layer>mysql-driver</layer>
+                                <layer>mysql</layer>
                                 <layer>jaxrs-server</layer>
                             </layers>
                             <filename>ROOT.war</filename>
