@@ -6,8 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+        <relativePath/> </parent>
     <groupId>com.brodygaudel</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -52,14 +51,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -71,107 +68,25 @@
             <version>24.0.1</version>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
-<!--
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                    <skip>true</skip>
-                </configuration>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <version>1.0.1.Final-redhat-00022</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
--->
-    <build><plugins> 
-    <plugin>
-                    <groupId>org.jboss.eap.plugins</groupId>
-                    <artifactId>eap-maven-plugin</artifactId>
-                    <version>1.0.1.Final-redhat-00022</version>
-                    <configuration>
-                        <channels>
-                            <channel>
-                                <manifest>
-                                    <groupId>org.jboss.eap.channels</groupId>
-                                    <artifactId>eap-8.0</artifactId>
-                                </manifest>
-                            </channel>
-                        </channels>
-                        <feature-packs>
-                            <feature-pack>
-                                <location>org.jboss.eap:wildfly-ee-galleon-pack</location>
-                            </feature-pack>
-                            <feature-pack>
-                                <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
-                            </feature-pack>
-                            <feature-pack>
-                                <location>org.jboss.eap:eap-datasources-galleon-pack</location>
-                            </feature-pack>
-                        </feature-packs>
-                        <layers>
-                            <layer>jaxrs-server</layer>
-                        </layers>
-                        <filename>ROOT.war</filename>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>package</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.jboss.eap.plugins</groupId>
-                    <artifactId>eap-maven-plugin</artifactId>
-                    <version>1.0.1.Final-redhat-00022</version>
-                    <configuration>
-                        <channels>
-                            <channel>
-                                <manifest>
-                                    <groupId>org.jboss.eap.channels</groupId>
-                                    <artifactId>eap-8.0</artifactId>
-                                </manifest>
-                            </channel>
-                        </channels>
-                        <feature-packs>
-                            <feature-pack>
-                                <location>org.jboss.eap:wildfly-ee-galleon-pack</location>
-                            </feature-pack>
-                            <feature-pack>
-                                <location>org.jboss.eap.cloud:eap-cloud-galleon-pack</location>
-                            </feature-pack>
-                            <feature-pack>
-                                <location>org.jboss.eap:eap-datasources-galleon-pack</location>
-                            </feature-pack>
-                        </feature-packs>
-                        <layers>
-                            <layer>jaxrs-server</layer>
-                        </layers>
-                        <filename>ROOT.war</filename>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>package</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
     <pluginRepositories>
-        <!-- keep this repository the first -->
         <pluginRepository>
             <id>jboss-public-maven-repository</id>
             <name>JBoss Public Maven Repository</name>
@@ -196,10 +111,26 @@
         </pluginRepository>
     </pluginRepositories>
     <profiles>
-      <profile>
-        <id>openshift</id>
-        <properties>
-            <postgresql.driver.version>42.6.0</postgresql.driver.version> </properties>
-    </profile>
-    </profiles> 
+        <profile>
+            <id>openshift</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <version>1.0.1.Final-redhat-00022</version>
+                        <configuration>
+                            </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
