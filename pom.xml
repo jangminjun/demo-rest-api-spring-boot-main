@@ -161,7 +161,7 @@
                             </feature-pack>
                         </feature-packs>
                         <layers>
-                            <layer>postgresql</layer> <layer>jaxrs-server</layer>
+                            <layer>jaxrs-server</layer>
                         </layers>
                         <filename>ROOT.war</filename>
                     </configuration>
