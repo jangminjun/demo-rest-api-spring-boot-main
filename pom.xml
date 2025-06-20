@@ -8,9 +8,11 @@
         <version>3.2.0</version>
         <relativePath/> </parent>
     <groupId>com.brodygaudel</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>ROOT</artifactId>
+    <!--
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    -->
+    <name>ROOT</name>
     <description>demo</description>
     <properties>
         <java.version>17</java.version>
