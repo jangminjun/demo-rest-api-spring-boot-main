@@ -150,8 +150,11 @@
                                 <layer>postgresql-datasource</layer>
                                 <layer>jaxrs-server</layer>
                             </layers>
+                            <!--
                             <filename>ROOT.war</filename>
+                            -->
                         </configuration>
+                        <!--
                         <executions>
                             <execution>
                                 <goals>
@@ -159,6 +162,7 @@
                                 </goals>
                             </execution>
                         </executions>
+                        -->
                     </plugin>
                 </plugins>
             </build>
