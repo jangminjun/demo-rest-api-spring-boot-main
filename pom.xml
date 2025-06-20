@@ -146,7 +146,7 @@
                                 </feature-pack>
                             </feature-packs>
                             <layers>
-                                <layer>mysql-datasource</layer>
+                                <layer>mysql-driver</layer>
                                 <layer>jaxrs-server</layer>
                             </layers>
                             <filename>ROOT.war</filename>
